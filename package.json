@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest --watchAll"
   },
   "keywords": [],
   "author": "",
@@ -11,5 +11,9 @@
   "description": "",
   "devDependencies": {
     "jest": "^29.7.0"
+  },
+  "dependencies": {
+    "mongoose": "^8.3.2",
+    "node-mocks-http": "^1.14.1"
   }
 }
