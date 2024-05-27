@@ -5,6 +5,7 @@ const newTodo = require("../mock-data/new-todo.json")
 const endpointUrl = "/todos/"
 
 let firstTodo, newTodoId
+
 const testData = {
     title: "Make integration test for PUT",
     done: true
@@ -68,6 +69,16 @@ describe(endpointUrl, () => {
         const res = await request(app)
         .put(endpointUrl + notExistingTodoId)
         .send(testData)
+        expect(res.statusCode).toBe(404)
+    });
+    it("DELETE " + endpointUrl, async () => {
+        const res = await request(app)
+            .delete(endpointUrl + newTodoId)
+        expect(res.statusCode).toBe(200)
+    })
+    it("should return 404 on DELETE " + endpointUrl, async () => {
+        const res = await request(app)
+        .delete(endpointUrl + notExistingTodoId)
         expect(res.statusCode).toBe(404)
     })
 })
